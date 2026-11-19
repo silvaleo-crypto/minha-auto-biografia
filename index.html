@@ -1,0 +1,607 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Leo Felippe | Minha História</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --bg: #0b0c0b;
+  --panel: #141613;
+  --gold: #c5a36b;
+  --cream: #f0ede5;
+  --muted: #a4a49b;
+  --line: #292b25;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--bg);
+  color: var(--cream);
+  font-family: 'DM Sans', sans-serif;
+  line-height: 1.7;
+}
+
+a { text-decoration: none; color: inherit; }
+
+header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(11,12,11,.94);
+  backdrop-filter: blur(15px);
+  border-bottom: 1px solid var(--line);
+  padding: 17px 7%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  font-family: 'Playfair Display', serif;
+  font-size: 25px;
+  letter-spacing: 4px;
+  color: var(--gold);
+}
+
+nav {
+  display: flex;
+  gap: 23px;
+  flex-wrap: wrap;
+}
+
+nav a {
+  color: #c9c8c1;
+  font-size: 12px;
+  transition: .3s;
+}
+
+nav a:hover { color: var(--gold); }
+
+.hero {
+  min-height: 88vh;
+  display: flex;
+  align-items: center;
+  padding: 70px 10%;
+  background:
+    linear-gradient(90deg, rgba(8,9,8,.95), rgba(8,9,8,.45)),
+    linear-gradient(0deg, #0b0c0b, transparent),
+    url('https://images.unsplash.com/photo-1470770841072-f978cf4d019e?w=1800')
+    center/cover;
+}
+
+.hero-content { max-width: 720px; }
+
+.eyebrow {
+  color: var(--gold);
+  font-size: 11px;
+  letter-spacing: 5px;
+  text-transform: uppercase;
+}
+
+.hero h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(55px, 10vw, 105px);
+  line-height: 1.1;
+  margin: 20px 0;
+  font-weight: 500;
+}
+
+.hero h1 span { color: var(--gold); }
+
+.hero p {
+  color: #d0cec6;
+  max-width: 500px;
+  font-size: 17px;
+}
+
+.button {
+  display: inline-block;
+  margin-top: 30px;
+  background: var(--gold);
+  color: #111;
+  padding: 13px 25px;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  border-radius: 3px;
+  transition: .3s;
+}
+
+.button:hover {
+  background: #ead1a4;
+  transform: translateY(-3px);
+}
+
+section {
+  padding: 100px 10%;
+  scroll-margin-top: 80px;
+}
+
+.section-label {
+  color: var(--gold);
+  font-size: 11px;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  margin-bottom: 12px;
+}
+
+h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(32px, 5vw, 48px);
+  font-weight: 500;
+  margin-bottom: 25px;
+}
+
+.intro {
+  max-width: 750px;
+  color: var(--muted);
+  font-size: 16px;
+}
+
+.about-grid {
+  display: grid;
+  grid-template-columns: 1.2fr .8fr;
+  gap: 55px;
+  align-items: center;
+}
+
+.profile {
+  background: linear-gradient(145deg, #25251e, #121410);
+  border: 1px solid var(--line);
+  padding: 35px;
+  border-radius: 5px;
+}
+
+.profile h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 28px;
+  color: var(--gold);
+}
+
+.profile p { color: var(--muted); }
+
+.stats {
+  display: flex;
+  gap: 25px;
+  margin-top: 25px;
+  flex-wrap: wrap;
+}
+
+.stat strong {
+  display: block;
+  color: var(--gold);
+  font-size: 23px;
+}
+
+.stat small {
+  color: var(--muted);
+  font-size: 11px;
+}
+
+.dark-section {
+  background: #11130f;
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit,minmax(210px,1fr));
+  gap: 18px;
+  margin-top: 40px;
+}
+
+.card {
+  background: var(--panel);
+  border: 1px solid var(--line);
+  padding: 28px;
+  border-radius: 5px;
+  transition: .3s;
+}
+
+.card:hover {
+  border-color: var(--gold);
+  transform: translateY(-5px);
+}
+
+.card .icon {
+  font-size: 30px;
+  margin-bottom: 14px;
+  display: block;
+}
+
+.card h3 {
+  color: var(--gold);
+  font-size: 17px;
+  margin-bottom: 8px;
+}
+
+.card p {
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.timeline {
+  max-width: 700px;
+  margin-top: 40px;
+  border-left: 1px solid var(--gold);
+  padding-left: 30px;
+}
+
+.event {
+  margin-bottom: 35px;
+  position: relative;
+}
+
+.event:before {
+  content: '';
+  position: absolute;
+  left: -36px;
+  top: 10px;
+  width: 11px;
+  height: 11px;
+  background: var(--gold);
+  border-radius: 50%;
+}
+
+.event h3 { color: var(--gold); }
+.event p { color: var(--muted); }
+
+.dream {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 25px;
+  margin-top: 35px;
+}
+
+.dream-card {
+  min-height: 280px;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: end;
+  padding: 28px;
+  border: 1px solid var(--line);
+  position: relative;
+  overflow: hidden;
+}
+
+.dream-card:before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(transparent,rgba(0,0,0,.92));
+}
+
+.dream-card div {
+  position: relative;
+  z-index: 1;
+}
+
+.dream-card h3 {
+  font-family: 'Playfair Display',serif;
+  font-size: 26px;
+  color: white;
+}
+
+.dream-card p {
+  color: #d1cec5;
+  font-size: 13px;
+}
+
+.quote {
+  padding: 75px 15%;
+  text-align: center;
+}
+
+.quote p {
+  font-family: 'Playfair Display',serif;
+  color: var(--gold);
+  font-size: clamp(25px,4vw,40px);
+  line-height: 1.5;
+}
+
+.movie {
+  display: grid;
+  grid-template-columns: .7fr 1.3fr;
+  gap: 35px;
+  align-items: center;
+  margin-top: 30px;
+}
+
+.movie-image {
+  min-height: 310px;
+  background: #171717;
+  display: grid;
+  place-items: center;
+  font-size: 85px;
+  border: 1px solid var(--line);
+}
+
+.movie p {
+  color: var(--muted);
+  font-size: 15px;
+}
+
+footer {
+  text-align: center;
+  padding: 45px 20px;
+  background: #090a09;
+  border-top: 1px solid var(--line);
+}
+
+footer strong {
+  color: var(--gold);
+  font-family: 'Playfair Display',serif;
+  font-size: 24px;
+}
+
+footer p {
+  color: var(--muted);
+  font-size: 12px;
+  margin-top: 10px;
+}
+
+@media(max-width:750px) {
+  header {
+    flex-direction: column;
+    gap: 14px;
+  }
+
+  nav { justify-content: center; gap: 13px; }
+
+  .about-grid,.movie,.dream {
+    grid-template-columns: 1fr;
+  }
+
+  .hero {
+    min-height: 75vh;
+    padding: 55px 7%;
+  }
+
+  section { padding: 70px 7%; }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <a class="logo" href="#inicio">LEO.</a>
+  <nav>
+    <a href="#sobre">Sobre</a>
+    <a href="#estilo">Estilo</a>
+    <a href="#gostos">Gostos</a>
+    <a href="#filme">Filme</a>
+    <a href="#sonhos">Sonhos</a>
+  </nav>
+</header>
+
+<!-- CAPA -->
+<div class="hero" id="inicio">
+  <div class="hero-content">
+    <div class="eyebrow">Minha autobiografia</div>
+    <h1>LEO <span>FELIPPE.</span></h1>
+    <p>
+      Uma vida construída com fé, trabalho,
+      personalidade e sonhos que ainda quero realizar.
+    </p>
+    <a href="#sobre" class="button">CONHEÇA MINHA HISTÓRIA</a>
+  </div>
+</div>
+
+<!-- SOBRE -->
+<section id="sobre">
+  <div class="about-grid">
+    <div>
+      <div class="section-label">01 — Quem sou eu</div>
+      <h2>Prazer, sou o Leo.</h2>
+      <p class="intro">
+        Meu nome é Leo Felippe da Silva e tenho
+        1,73 m de altura. Gosto de trabalhar,
+        ouvir música, frequentar a igreja e jogar futebol.
+
+        Também gosto de roupas pretas, carros,
+        motos, sair com os amigos e cuidar do meu visual.
+
+        Tenho minha própria personalidade e muitos
+        planos para o futuro. Quero crescer,
+        conquistar meus objetivos e construir uma
+        história da qual possa me orgulhar.
+      </p>
+    </div>
+
+    <div class="profile">
+      <h3>Minha essência</h3>
+      <p>Fé, simplicidade, dedicação e sonhos.</p>
+
+      <div class="stats">
+        <div class="stat">
+          <strong>1,73</strong>
+          <small>ALTURA</small>
+        </div>
+        <div class="stat">
+          <strong>🖤</strong>
+          <small>ESTILO</small>
+        </div>
+        <div class="stat">
+          <strong>🌾</strong>
+          <small>SONHO</small>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ESTILO -->
+<section class="dark-section" id="estilo">
+  <div class="section-label">02 — Minha identidade</div>
+  <h2>Meu estilo de vida.</h2>
+  <p class="intro">
+    Gosto de ter meu próprio estilo, aproveitar
+    os momentos e viver experiências.
+  </p>
+
+  <div class="cards">
+    <div class="card">
+      <span class="icon">🖤</span>
+      <h3>Visual preto</h3>
+      <p>Roupas pretas, estilo e personalidade.</p>
+    </div>
+    <div class="card">
+      <span class="icon">💈</span>
+      <h3>Cabelo</h3>
+      <p>Gosto de cuidar do visual e manter o corte em dia.</p>
+    </div>
+    <div class="card">
+      <span class="icon">🤝</span>
+      <h3>Amizades</h3>
+      <p>Sair, conversar e aproveitar com os amigos.</p>
+    </div>
+    <div class="card">
+      <span class="icon">🎵</span>
+      <h3>Música</h3>
+      <p>Escutar música e aproveitar cada momento.</p>
+    </div>
+  </div>
+</section>
+
+<!-- INTERESSES -->
+<section id="gostos">
+  <div class="section-label">03 — O que eu gosto</div>
+  <h2>Minhas paixões.</h2>
+
+  <div class="cards">
+    <div class="card">
+      <span class="icon">⚽</span>
+      <h3>Futebol</h3>
+      <p>Jogar bola e me divertir dentro de campo.</p>
+    </div>
+    <div class="card">
+      <span class="icon">🚘</span>
+      <h3>Carros</h3>
+      <p>Admiro os modelos e o universo automotivo.</p>
+    </div>
+    <div class="card">
+      <span class="icon">🏍️</span>
+      <h3>Motos</h3>
+      <p>Gosto de motos e seus diferentes estilos.</p>
+    </div>
+    <div class="card">
+      <span class="icon">⛪</span>
+      <h3>Igreja</h3>
+      <p>Um lugar para viver minha fé.</p>
+    </div>
+    <div class="card">
+      <span class="icon">💼</span>
+      <h3>Trabalho</h3>
+      <p>Gosto de trabalhar e buscar meu crescimento.</p>
+    </div>
+    <div class="card">
+      <span class="icon">🤜</span>
+      <h3>Amigos</h3>
+      <p>Boas companhias e momentos especiais.</p>
+    </div>
+  </div>
+</section>
+
+<!-- FILME -->
+<section class="dark-section" id="filme">
+  <div class="section-label">04 — Meu entretenimento</div>
+  <h2>Meu filme favorito.</h2>
+
+  <div class="movie">
+    <div class="movie-image">🕷️</div>
+    <div>
+      <h3 style="color:var(--gold);font-size:25px">
+        Homem-Aranha
+      </h3>
+      <p>
+        Meu filme favorito é Homem-Aranha.
+        Gosto do universo dos super-heróis,
+        das aventuras e das histórias desse personagem.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- SONHOS -->
+<section id="sonhos">
+  <div class="section-label">05 — Meu futuro</div>
+  <h2>Uma vida que quero construir.</h2>
+
+  <p class="intro">
+    Mais do que conquistar bens materiais,
+    tenho o sonho de construir uma família,
+    ter meu próprio lar e trabalhar com aquilo
+    que gosto.
+  </p>
+
+  <div class="dream">
+    <div class="dream-card"
+      style="background-image:url('https://images.unsplash.com/photo-1500382017468-9049fed747ef?w=1000')">
+      <div>
+        <h3>Minha vida no campo</h3>
+        <p>Ter um sítio e viver perto da natureza.</p>
+      </div>
+    </div>
+
+    <div class="dream-card"
+      style="background-image:url('https://images.unsplash.com/photo-1470252649378-9c29740c9fa8?w=1000')">
+      <div>
+        <h3>Trabalhar no agro</h3>
+        <p>Crescer profissionalmente no agronegócio.</p>
+      </div>
+    </div>
+
+    <div class="dream-card"
+      style="background-image:url('https://images.unsplash.com/photo-1519741497674-611481863552?w=1000')">
+      <div>
+        <h3>Casar</h3>
+        <p>Encontrar alguém para compartilhar a vida.</p>
+      </div>
+    </div>
+
+    <div class="dream-card"
+      style="background-image:url('https://images.unsplash.com/photo-1511895426328-dc8714191300?w=1000')">
+      <div>
+        <h3>Minha família</h3>
+        <p>Construir um lar cheio de amor e felicidade.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FRASE -->
+<div class="quote">
+  <p>
+    "Meu maior sonho é construir uma vida
+    simples, feliz, com fé, família e
+    muito trabalho."
+  </p>
+  <div class="section-label" style="margin-top:20px">
+    LEO FELIPPE DA SILVA
+  </div>
+</div>
+
+<footer>
+  <strong>LEO FELIPPE.</strong>
+  <p>Minha história ainda está sendo escrita.</p>
+  <p>© 2026 — Todos os direitos reservados.</p>
+</footer>
+
+</body>
+</html>
